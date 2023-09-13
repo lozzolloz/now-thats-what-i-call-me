@@ -17,8 +17,10 @@ const getTokenFromUrl = () => {
 
 function App() {
   const [spotifyToken, setSpotifyToken] = useState("");
-  const [nowPlaying, setNowPlaying] = useState({});
+  const [topTracks, setTopTracks] = useState([]);
   const [loggedIn, setLoggedIn] = useState(false);
+  const [trackLimit, setTrackLimit] = useState(10);
+  const [timeRange, setTimeRange] = useState("short_term");
 
   useEffect(() => {
     console.log("This is what we derived from the URL: ", getTokenFromUrl());
@@ -36,30 +38,71 @@ function App() {
     }
   });
 
-const getNowPlaying = () => {
-  spotifyApi.getMyCurrentPlaybackState().then((response) => {
-    console.log(response);
-    setNowPlaying({
-    name: response.item.name,
-    albumArt: response.item.album.images[0].url,
-})
-  })
-}
+  const getNowPlaying = () => {
+    spotifyApi.getMyTopTracks().then((response) => {
+      console.log(response.items[0].artists[0].name);
+      // setNowPlaying({
+      // name: response.item.name,
+      // albumArt: response.item.album.images[0].url,
+    });
+  };
+
+  useEffect(() => {
+    console.log("This is our number of tracks: ", trackLimit);
+    console.log("This is our time period: ", timeRange);
+  }, [trackLimit, timeRange]);
+
   return (
     <div className="App">
       {!loggedIn && <a href="http://localhost:8888">Log in to Spotify</a>}
       {loggedIn && (
         <>
-<div>Now Playing: {nowPlaying.name}</div>
-<div>
-  <img src={nowPlaying.albumArt} style={{ height: 150 }} />
-</div>
+          <button
+            className={trackLimit === 10 ? "selected" : ""}
+            onClick={() => setTrackLimit(10)}
+          >
+            10 tracks
+          </button>
+          <button
+            className={trackLimit === 20 ? "selected" : ""}
+            onClick={() => setTrackLimit(20)}
+          >
+            20 tracks
+          </button>
+          <button
+            className={trackLimit === 50 ? "selected" : ""}
+            onClick={() => setTrackLimit(50)}
+          >
+            50 tracks
+          </button>
+          <button
+            className={timeRange === "short_term" ? "selected" : ""}
+            onClick={() => setTimeRange("short_term")}
+          >
+            1 month
+          </button>
+          <button
+            className={timeRange === "medium_term" ? "selected" : ""}
+            onClick={() => setTimeRange("medium_term")}
+          >
+            6 months
+          </button>
+          <button
+            className={timeRange === "long_term" ? "selected" : ""}
+            onClick={() => setTimeRange("long_term")}
+          >
+            All time
+          </button>
+          <button onClick={getNowPlaying}>Get top tracks</button>
         </>
       )}
-      {loggedIn && <button onClick={getNowPlaying}>Check Now Playing</button>}
+      {loggedIn && (
+        <div>
+          <p>{topTracks}</p>
+        </div>
+      )}
     </div>
   );
-
 }
 
 export default App;
