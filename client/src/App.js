@@ -38,7 +38,7 @@ function App() {
     }
   });
 
-  const getNowPlaying = (trackLimit, timeRange) => {
+  const getMyTopTracks = (trackLimit, timeRange) => {
     spotifyApi
       .getMyTopTracks({ limit: trackLimit, time_range: timeRange })
       .then((response) => {
@@ -48,8 +48,7 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("This is our number of tracks: ", trackLimit);
-    console.log("This is our time period: ", timeRange);
+    getMyTopTracks(trackLimit, timeRange);
   }, [trackLimit, timeRange]);
 
   useEffect(() => {
@@ -97,22 +96,33 @@ function App() {
           >
             All time
           </button>
-          <button onClick={() => getNowPlaying(trackLimit, timeRange)}>
-            Get top tracks
-          </button>
         </>
       )}
       {loggedIn && (
-        <>
-          {topTracks.map((track) => (
-            <div key={track.id}>
-              <p>{track.artists[0].name}: {track.name}</p>
-            </div>
+        <div
+          id="tracklist"
+          className={
+            trackLimit === 10
+              ? "tracks-ten"
+              : trackLimit === 20
+              ? "selected-twenty"
+              : trackLimit === 50
+              ? "selected-fifty"
+              : ""
+          }
+        >
+          {topTracks.map((track, index) => (
+            <p key={track.id}>
+              <span className="bold">
+                {index + 1}. {index > 8 ? "\u00A0" : "\u00A0\u00A0"}
+                {track.artists[0].name} -
+              </span>{" "}
+              {track.name}
+            </p>
           ))}
-        </>
+        </div>
       )}
     </div>
   );
-  
-          }
+}
 export default App;

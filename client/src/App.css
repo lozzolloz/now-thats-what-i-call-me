@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 div,
 button {
@@ -9,4 +9,18 @@ button {
 
 .selected {
   background-color: pink;
+}
+
+.tracks-ten p {
+  font-family: "Arial Narrow";
+  font-size: 14px;
+
+  margin-bottom: -14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.bold {
+  font-weight: bold;
 }
