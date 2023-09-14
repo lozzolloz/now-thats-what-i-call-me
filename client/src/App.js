@@ -38,19 +38,23 @@ function App() {
     }
   });
 
-  const getNowPlaying = () => {
-    spotifyApi.getMyTopTracks().then((response) => {
-      console.log(response.items[0].artists[0].name);
-      // setNowPlaying({
-      // name: response.item.name,
-      // albumArt: response.item.album.images[0].url,
-    });
+  const getNowPlaying = (trackLimit, timeRange) => {
+    spotifyApi
+      .getMyTopTracks({ limit: trackLimit, time_range: timeRange })
+      .then((response) => {
+        console.log(response.items);
+        setTopTracks(response.items);
+      });
   };
 
   useEffect(() => {
     console.log("This is our number of tracks: ", trackLimit);
     console.log("This is our time period: ", timeRange);
   }, [trackLimit, timeRange]);
+
+  useEffect(() => {
+    console.log("This is our top tracks: ", topTracks);
+  }, [topTracks]);
 
   return (
     <div className="App">
@@ -93,16 +97,22 @@ function App() {
           >
             All time
           </button>
-          <button onClick={getNowPlaying}>Get top tracks</button>
+          <button onClick={() => getNowPlaying(trackLimit, timeRange)}>
+            Get top tracks
+          </button>
         </>
       )}
       {loggedIn && (
-        <div>
-          <p>{topTracks}</p>
-        </div>
+        <>
+          {topTracks.map((track) => (
+            <div key={track.id}>
+              <p>{track.artists[0].name}: {track.name}</p>
+            </div>
+          ))}
+        </>
       )}
     </div>
   );
-}
-
+  
+          }
 export default App;
