@@ -21,6 +21,20 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [trackLimit, setTrackLimit] = useState(10);
   const [timeRange, setTimeRange] = useState("short_term");
+  const [theme, setTheme] = useState("Tropical");
+
+  const trackLimits = [
+    { limit: 10, alias: "10 tracks" },
+    { limit: 20, alias: "20 tracks" },
+    { limit: 50, alias: "50 tracks" },
+  ];
+  const timeRanges = [
+    { range: "short_term", alias: "1 month" },
+    { range: "medium_term", alias: "6 months" },
+    { range: "long_term", alias: "All time" },
+  ];
+  const themes1 = ["Tropical", "Bubbles", "Balloons"];
+  const themes2 = ["Splash", "Fireworks", "Ice"];
 
   useEffect(() => {
     console.log("This is what we derived from the URL: ", getTokenFromUrl());
@@ -55,71 +69,95 @@ function App() {
     console.log("This is our top tracks: ", topTracks);
   }, [topTracks]);
 
+  useEffect(() => {
+    console.log("This is our theme: ", theme);
+  }, [theme]);
+
   return (
     <div className="App">
       {!loggedIn && <a href="http://localhost:8888">Log in to Spotify</a>}
       {loggedIn && (
-        <>
-          <button
-            className={trackLimit === 10 ? "selected" : ""}
-            onClick={() => setTrackLimit(10)}
-          >
-            10 tracks
-          </button>
-          <button
-            className={trackLimit === 20 ? "selected" : ""}
-            onClick={() => setTrackLimit(20)}
-          >
-            20 tracks
-          </button>
-          <button
-            className={trackLimit === 50 ? "selected" : ""}
-            onClick={() => setTrackLimit(50)}
-          >
-            50 tracks
-          </button>
-          <button
-            className={timeRange === "short_term" ? "selected" : ""}
-            onClick={() => setTimeRange("short_term")}
-          >
-            1 month
-          </button>
-          <button
-            className={timeRange === "medium_term" ? "selected" : ""}
-            onClick={() => setTimeRange("medium_term")}
-          >
-            6 months
-          </button>
-          <button
-            className={timeRange === "long_term" ? "selected" : ""}
-            onClick={() => setTimeRange("long_term")}
-          >
-            All time
-          </button>
-        </>
+        <div className="options">
+          <p>Number of tracks</p>
+          <div className="limit-buttons">
+            {trackLimits.map((limit) => (
+              <button
+                className={trackLimit === limit.limit ? "selected" : ""}
+                onClick={() => setTrackLimit(limit.limit)}
+              >
+                {limit.alias}
+              </button>
+            ))}
+          </div>
+          <p>Time range</p>
+          <div className="range-buttons">
+            {timeRanges.map((range) => (
+              <button
+                className={timeRange === range.range ? "selected" : ""}
+                onClick={() => setTimeRange(range.range)}
+              >
+                {range.alias}
+              </button>
+            ))}
+          </div>
+          <p>Theme</p>
+          <div className="theme-buttons">
+            {themes1.map((selectedTheme) => (
+              <button
+                className={theme === selectedTheme ? "selected" : ""}
+                onClick={() => setTheme(selectedTheme)}
+              >
+                {selectedTheme}
+              </button>
+            ))}
+            <br />
+            {themes2.map((selectedTheme) => (
+              <button
+                className={theme === selectedTheme ? "selected" : ""}
+                onClick={() => setTheme(selectedTheme)}
+              >
+                {selectedTheme}
+              </button>
+            ))}
+          </div>
+        </div>
       )}
       {loggedIn && (
-        <div
-          id="tracklist"
-          className={
-            trackLimit === 10
-              ? "tracks-ten"
-              : trackLimit === 20
-              ? "selected-twenty"
-              : trackLimit === 50
-              ? "selected-fifty"
-              : ""
-          }
-        >
-          {topTracks.map((track, index) => (
-            <p key={track.id}>
-              <span className="bold">
-                {index + 1}. {index > 8 ? "\u00A0" : "\u00A0\u00A0"}
-                {track.artists[0].name} -
-              </span>{" "}
-              {track.name}
-            </p>
-          ))}
+        <div className="results">
+         <div className="cover-art">
+            <img
+              src={process.env.PUBLIC_URL + '/images/' + theme + '.jpeg'}
+              alt="cover-art"
+            ></img>
+      </div>
+
+      <div className="title">
+        <p>NOW</p>
+        <p>THAT'S WHAT I CALL</p>
+        <p>MUSIC</p>
+      </div>
+          <div
+            id="tracklist"
+            className={
+              trackLimit === 10
+                ? "tracks-ten"
+                : trackLimit === 20
+                ? "tracks-twenty"
+                : trackLimit === 50
+                ? "tracks-fifty"
+                : ""
+            }
+          >
+            {topTracks.map((track, index) => (
+              <p key={track.id}>
+                <span className="bold">
+                  {index + 1}. {index > 8 ? "\u00A0" : "\u00A0\u00A0"}
+                  {track.artists[0].name} -
+                </span>{" "}
+                {track.name}
+              </p>
+            ))}
+          </div>
         </div>
       )}
     </div>
