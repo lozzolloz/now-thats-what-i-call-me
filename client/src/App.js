@@ -22,6 +22,7 @@ function App() {
   const [trackLimit, setTrackLimit] = useState(10);
   const [timeRange, setTimeRange] = useState("short_term");
   const [theme, setTheme] = useState("Tropical");
+  const[userName, setUserName] = useState("")
 
   const trackLimits = [
     { limit: 10, alias: "10 tracks" },
@@ -47,6 +48,7 @@ function App() {
       spotifyApi.setAccessToken(spotifyToken);
       spotifyApi.getMe().then((user) => {
         console.log("This is our user: ", user);
+        setUserName(user.display_name);
       });
       setLoggedIn(true);
     }
@@ -132,9 +134,9 @@ function App() {
       </div>
 
       <div className="title">
-        <p>NOW</p>
-        <p>THAT'S WHAT I CALL</p>
-        <p>MUSIC</p>
+        <p className="title-now">NOW</p>
+        <p className="title-thats">THAT'S WHAT I CALL</p>
+        <p className="title-username">{userName.toUpperCase()}</p>
       </div>
           <div
             id="tracklist"

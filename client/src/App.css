@@ -1,12 +1,10 @@
 button {
   margin: 10px;
-margin-bottom: 5px;
+  margin-bottom: 5px;
   width: 80px;
   height: 30px;
   border-radius: 10px;
 }
-
-
 
 .options {
   display: flex;
@@ -15,25 +13,24 @@ margin-bottom: 5px;
   align-items: center;
 }
 
-.options p{
+.options p {
   font-size: 16px;
   margin-bottom: 5px;
   margin-top: 5px;
 }
 
-.cover-art{
+.cover-art {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.results{
+.results {
   position: relative;
 }
 
-.cover-art img{
+.cover-art img {
   width: 360px;
-
 }
 
 .selected {
@@ -43,10 +40,48 @@ margin-bottom: 5px;
 .tracks-ten p {
   font-family: "Arial Narrow";
   font-size: 14px;
-  margin-bottom: -10px;
+  margin-bottom: -8px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+
+.title {
+  position: absolute;
+  top: 0px;
+  left: 35px;
+  z-index: 1;
+  width: 325px;
+  font-family: "Helvetica";
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title-now {
+  font-size: 25px;
+  margin-bottom: -9px;
+  margin-top: 15px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  color: yellow;
+}
+.title-thats {
+  font-size: 7px;
+  margin-bottom: -16px;
+  border-style: solid;
+  border-radius: 5px;
+  width: 90px;
+  color: black;
+  background-color: yellow;
+}
+.title-username {
+  font-size: 17px;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+  color: yellow;
 }
 
 .tracks-twenty p {
@@ -60,20 +95,21 @@ margin-bottom: 5px;
 
 .tracks-fifty p {
   font-family: "Arial Narrow";
-  font-size: 11px;
-  margin-bottom: -14px;
+  font-size: 10px;
+  margin-bottom: -11.7px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.tracks-ten, .tracks-twenty, .tracks-fifty {
+.tracks-ten,
+.tracks-twenty,
+.tracks-fifty {
   position: absolute;
-  top: 35px;
+  top: 65px;
   left: 35px;
   z-index: 1;
-  width:325px
-
+  width: 325px;
 }
 
 .bold {
