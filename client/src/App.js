@@ -22,7 +22,27 @@ function App() {
   const [trackLimit, setTrackLimit] = useState(10);
   const [timeRange, setTimeRange] = useState("short_term");
   const [theme, setTheme] = useState("Tropical");
-  const[userName, setUserName] = useState("")
+  const [userName, setUserName] = useState("");
+
+  const today = new Date();
+  const day = today.getDate();
+  const monthNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  const monthIndex = today.getMonth();
+  const year = today.getFullYear();
+  const formattedDate = `${day} ${monthNames[monthIndex]} ${year}`;
 
   const trackLimits = [
     { limit: 10, alias: "10 tracks" },
@@ -52,7 +72,7 @@ function App() {
       });
       setLoggedIn(true);
     }
-  });
+  }, []);
 
   const getMyTopTracks = (trackLimit, timeRange) => {
     spotifyApi
@@ -64,8 +84,10 @@ function App() {
   };
 
   useEffect(() => {
-    getMyTopTracks(trackLimit, timeRange);
-  }, [trackLimit, timeRange]);
+    if (spotifyToken) {
+      getMyTopTracks(trackLimit, timeRange);
+    }
+  }, [trackLimit, timeRange, spotifyToken]);
 
   useEffect(() => {
     console.log("This is our top tracks: ", topTracks);
@@ -126,40 +148,90 @@ function App() {
       )}
       {loggedIn && (
         <div className="results">
-         <div className="cover-art">
+          <div className="cover-art">
             <img
-              src={process.env.PUBLIC_URL + '/images/' + theme + '.jpeg'}
+              src={process.env.PUBLIC_URL + "/images/" + theme + ".jpeg"}
               alt="cover-art"
             ></img>
-      </div>
-
-      <div className="title">
-        <p className="title-now">NOW</p>
-        <p className="title-thats">THAT'S WHAT I CALL</p>
-        <p className="title-username">{userName.toUpperCase()}</p>
-      </div>
-          <div
-            id="tracklist"
-            className={
-              trackLimit === 10
-                ? "tracks-ten"
-                : trackLimit === 20
-                ? "tracks-twenty"
-                : trackLimit === 50
-                ? "tracks-fifty"
-                : ""
-            }
-          >
-            {topTracks.map((track, index) => (
-              <p key={track.id}>
-                <span className="bold">
-                  {index + 1}. {index > 8 ? "\u00A0" : "\u00A0\u00A0"}
-                  {track.artists[0].name} -
-                </span>{" "}
-                {track.name}
-              </p>
-            ))}
           </div>
+
+          <div className="title">
+            <p className="title-now">NOW</p>
+            <p className="title-thats">THAT'S WHAT I CALL</p>
+            <p className="title-username">{userName.toUpperCase()}</p>
+          </div>
+
+          <div className="slogan">
+            {timeRange === "short_term" && (
+              <p className="slogan">BIGGEST HITS OF THE LAST MONTH!</p>
+            )}
+            {timeRange === "medium_term" && (
+              <p className="slogan">HITS FROM THE LAST 6 MONTHS!</p>
+            )}
+            {timeRange === "long_term" && (
+              <p className="slogan">YOUR ALL-TIME GREATEST HITS!</p>
+            )}
+          </div>
+
+          <img
+            className="barcode"
+            src={process.env.PUBLIC_URL + "images/Barcode.jpg"}
+            alt="barcode"
+          ></img>
+
+          <p className="date-and-url">
+            Published {formattedDate}&nbsp;nowthatswhaticallme.netlify.app
+          </p>
+
+          {trackLimit <= 20 && (
+            <div
+              id="tracklist"
+              className={
+                trackLimit === 10
+                  ? "tracks-ten"
+                  : trackLimit === 20
+                  ? "tracks-twenty"
+                  : ""
+              }
+            >
+              {topTracks.map((track, index) => (
+                <p key={track.id}>
+                  <span className="bold">
+                    {index + 1}. {index > 8 ? "\u00A0" : "\u00A0\u00A0"}
+                    {track.artists[0].name} -
+                  </span>{" "}
+                  {track.name}
+                </p>
+              ))}
+            </div>
+          )}
+
+          {trackLimit === 50 && (
+            <div id="tracklist" className="tracks-fifty">
+              <div className="left-column">
+                {topTracks.slice(0, 25).map((track, index) => (
+                  <p key={track.id}>
+                    <span className="bold">
+                      {index + 1}. {index > 8 ? "\u00A0" : "\u00A0\u00A0"}
+                      {track.artists[0].name} -
+                    </span>{" "}
+                    {track.name}
+                  </p>
+                ))}
+              </div>
+              <div className="right-column">
+                {topTracks.slice(25, 50).map((track, index) => (
+                  <p key={track.id}>
+                    <span className="bold">
+                      {index + 26}. {"\u00A0"}
+                      {track.artists[0].name} -
+                    </span>{" "}
+                    {track.name}
+                  </p>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>

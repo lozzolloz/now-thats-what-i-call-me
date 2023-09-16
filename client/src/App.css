@@ -37,18 +37,9 @@ button {
   background-color: pink;
 }
 
-.tracks-ten p {
-  font-family: "Arial Narrow";
-  font-size: 14px;
-  margin-bottom: -8px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
 .title {
   position: absolute;
-  top: 0px;
+  top: -10px;
   left: 35px;
   z-index: 1;
   width: 325px;
@@ -84,10 +75,54 @@ button {
   color: yellow;
 }
 
+.slogan {
+  position: absolute;
+  top: 145px;
+  left: 18px;
+  z-index: 1;
+  width: 165px;
+  font-size: 16px;
+  font-family: "Helvetica";
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000;
+color: yellow;
+}
+
+.barcode {
+  position: absolute;
+  top: 308px;
+  left: 274px;
+  z-index: 1;
+width: 77px}
+
+.date-and-url {
+  position: absolute;
+  top: 333px;
+  left: 37px;
+  z-index: 1;
+  color: white;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+  1px 1px 0 #000;
+  font-family: "Arial Narrow";
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.tracks-ten p {
+  font-family: "Arial Narrow";
+  font-size: 14px;
+  margin-bottom: -8px;
+margin-top: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
 .tracks-twenty p {
   font-family: "Arial Narrow";
   font-size: 12px;
-  margin-bottom: -14px;
+  margin-bottom: -13.5px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -95,21 +130,42 @@ button {
 
 .tracks-fifty p {
   font-family: "Arial Narrow";
-  font-size: 10px;
-  margin-bottom: -11.7px;
+  font-size: 9.5px;
+  margin-bottom: -10.8px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  width: calc(100% - 10px);
 }
 
 .tracks-ten,
 .tracks-twenty,
 .tracks-fifty {
   position: absolute;
-  top: 65px;
+  top: 52px;
   left: 35px;
   z-index: 1;
   width: 325px;
+}
+
+.tracks-fifty {
+  display: flex;
+  gap: 4px; /* Adjust this value as needed for spacing between columns */
+  justify-content: space-between;
+  /* You can also use 'column-count: 2;' instead of flex properties if you prefer columns */
+}
+
+.left-column,
+.right-column {
+  width: calc(50% - 2px); /* Adjust the width as needed for your desired column layout */
+}
+
+.left-column {
+  order: 1; /* Ensure the left column comes first */
+}
+
+.right-column {
+  order: 2; /* Ensure the right column comes second */
 }
 
 .bold {
