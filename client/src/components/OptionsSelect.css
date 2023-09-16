@@ -1,0 +1,34 @@
+.options button {
+    margin: 10px;
+    margin-bottom: 5px;
+    width: 80px;
+    height: 30px;
+    border-radius: 10px;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 17px;
+  }
+  
+  .options p {
+    font-size: 16px;
+    margin-bottom: 2px;
+    margin-top: 2px;
+  }
+  
+  .options__section {
+    text-align: center;
+    background-color: lightgrey;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    width: 320px;
+  }
+
+  .selected {
+    background-color: pink;
+  }
