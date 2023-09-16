@@ -102,6 +102,7 @@ function App() {
       {!loggedIn && <a href="http://localhost:8888">Log in to Spotify</a>}
       {loggedIn && (
         <div className="options">
+        <div className="options__section">
           <p>Number of tracks</p>
           <div className="limit-buttons">
             {trackLimits.map((limit) => (
@@ -113,6 +114,8 @@ function App() {
               </button>
             ))}
           </div>
+          </div>
+          <div className="options__section">
           <p>Time range</p>
           <div className="range-buttons">
             {timeRanges.map((range) => (
@@ -123,7 +126,7 @@ function App() {
                 {range.alias}
               </button>
             ))}
-          </div>
+          </div></div><div className="options__section">
           <p>Theme</p>
           <div className="theme-buttons">
             {themes1.map((selectedTheme) => (
@@ -143,7 +146,7 @@ function App() {
                 {selectedTheme}
               </button>
             ))}
-          </div>
+          </div></div>
         </div>
       )}
       {loggedIn && (
@@ -156,20 +159,20 @@ function App() {
           </div>
 
           <div className="title">
-            <p className="title-now">NOW</p>
-            <p className="title-thats">THAT'S WHAT I CALL</p>
-            <p className="title-username">{userName.toUpperCase()}</p>
+            <p id="title-now" className={"text--"+theme}>NOW</p>
+            <p id="title-thats" className={"text--"+theme+"__highlighted"}>THAT'S WHAT I CALL</p>
+            <p id="title-username" className={"text--"+theme}>{userName.toUpperCase()}</p>
           </div>
 
-          <div className="slogan">
+          <div id="slogan" className={"text--"+theme}>
             {timeRange === "short_term" && (
-              <p className="slogan">BIGGEST HITS OF THE LAST MONTH!</p>
+              <p>BIGGEST HITS OF THE LAST MONTH!</p>
             )}
             {timeRange === "medium_term" && (
-              <p className="slogan">HITS FROM THE LAST 6 MONTHS!</p>
+              <p>HITS FROM THE LAST 6 MONTHS!</p>
             )}
             {timeRange === "long_term" && (
-              <p className="slogan">YOUR ALL-TIME GREATEST HITS!</p>
+              <p>YOUR ALL-TIME GREATEST HITS!</p>
             )}
           </div>
 
@@ -232,6 +235,10 @@ function App() {
               </div>
             </div>
           )}
+          <div className="lower-third">
+            <button>Save image</button>
+            <p>Log out</p>
+            </div>
         </div>
       )}
     </div>
