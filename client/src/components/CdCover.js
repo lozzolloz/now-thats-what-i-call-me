@@ -9,13 +9,15 @@ export default function CdCover({
   topTracks,
 }) {
   return (
-    <div className="results">
-      <div className="cover-art">
+    <div className="cd-cover">
+      <div className="cover-bg">
         <img
           src={"/" + theme + ".jpeg"}
           alt="cover-art"
         ></img>
       </div>
+
+<div className="cover__overlay">
 
       <div className="title">
         <p id="title-now" className={"text--" + theme}>
@@ -28,22 +30,6 @@ export default function CdCover({
           {userName.toUpperCase()}
         </p>
       </div>
-
-      <div id="slogan" className={"text--" + theme}>
-        {timeRange === "short_term" && <p>BIGGEST HITS OF THE LAST MONTH!</p>}
-        {timeRange === "medium_term" && <p>HITS FROM THE LAST 6 MONTHS!</p>}
-        {timeRange === "long_term" && <p>YOUR ALL-TIME GREATEST HITS!</p>}
-      </div>
-
-      <img
-        className="barcode"
-        src={process.env.PUBLIC_URL + "images/Barcode.jpg"}
-        alt="barcode"
-      ></img>
-
-      <p className="date-and-url">
-        Published {formattedDate}&nbsp;nowthatswhaticallme.netlify.app
-      </p>
 
       {trackLimit <= 20 && (
         <div
@@ -94,6 +80,33 @@ export default function CdCover({
           </div>
         </div>
       )}
+
+
+<div className="cover__overlay--bottom">
+
+      <div className="blurb">
+      <div id="slogan" className={"text--" + theme}>
+        {timeRange === "short_term" && <p>BIGGEST HITS OF THE LAST MONTH!</p>}
+        {timeRange === "medium_term" && <p>HITS FROM THE LAST 6 MONTHS!</p>}
+        {timeRange === "long_term" && <p>YOUR ALL-TIME GREATEST HITS!</p>}
+      </div>
+    
+      <p className="date-and-url">
+        Published {formattedDate}&nbsp;nowthatswhaticallme.netlify.app
+      </p>
+
+      </div>
+
+      <img
+        className="barcode"
+        src={process.env.PUBLIC_URL + "images/Barcode.jpg"}
+        alt="barcode"
+      ></img>
+
+
+</div>
+      
+    </div>
     </div>
   );
 }

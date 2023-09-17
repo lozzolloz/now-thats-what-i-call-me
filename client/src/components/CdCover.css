@@ -1,6 +1,171 @@
-.results {
+.cd-cover {
   position: relative;
-  margin-top: 15px;
+  height: 45vh;
+  width: 45vh;
+}
+
+/* background artwork */
+
+.cover-bg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-bg img {
+  width: 45vh;
+  height: 45vh;
+}
+
+.cover__overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 45vh;
+  height: 45vh;
+}
+
+/* NOW logo */
+
+.title {
+  z-index: 1;
+  width: 45vh;
+  font-family: "Helvetica";
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0.5vh;
+  margin-bottom: 0;
+}
+
+#title-now {
+  font-size: 2.6vh;
+  margin-bottom: -1vh;
+  margin-top: 0
+}
+#title-thats {
+  font-size: 0.9vh;
+  margin-bottom: -1.9vh;
+  border-style: solid;
+  border-radius: 5px;
+  width: 10vh;
+}
+#title-username {
+  font-size: 2vh;
+  margin-bottom: 0
+}
+
+/* lower third */
+
+.cover__overlay--bottom {
+  width: 45vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-top: -1vh;
+  margin-bottom: 0.5vh;
+}
+
+.blurb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-evenly;
+}
+
+/* slogan */
+
+#slogan {
+  z-index: 1;
+  width: 20vh;
+  margin: 0;
+  font-size: 2vh;
+  font-family: "Helvetica";
+  font-weight: bold;
+}
+
+/* date and url */
+
+.date-and-url {
+  z-index: 1;
+  color: white;
+  text-shadow: -0.1vh -0.1vh 0 #000, 0.1vh -0.1vh 0 #000, -0.1vh 0.1vh 0 #000,
+    0.1vh 0.1vh 0 #000;
+  font-family: "Arial Narrow";
+  font-weight: bold;
+  font-size: 1.2vh;
+  margin-top: -2vh;
+  margin-bottom: 0;
+}
+
+/* barcode */
+
+.barcode {
+  z-index: 1;
+  width: 10.5vh;
+  height: 6vh;;
+}
+
+/* track listing */
+
+.tracks-ten p {
+  font-family: "Arial Narrow";
+  font-size: 14px;
+  margin-bottom: -8px;
+  margin-top: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tracks-twenty p {
+  font-family: "Arial Narrow";
+  font-size: 12px;
+  margin-bottom: -13.5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.tracks-fifty p {
+  font-family: "Arial Narrow";
+  font-size: 1.15vh;
+  margin-bottom: -1.25vh;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 18.2vh;
+}
+
+.tracks-ten,
+.tracks-twenty {
+}
+
+.tracks-fifty {
+  z-index: 1;
+  width: 45vh;
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  margin: 0
+}
+
+.left-column,
+.right-column {
+  width: 21.5vh;
+  margin-top: -1.5vh
+}
+
+.bold {
+  font-weight: bold;
 }
 
 /* colour schemes */
@@ -22,9 +187,9 @@
 
 .text--Tropical {
   color: var(--tropical);
-  text-shadow: -1px -1px 0 var(--tropical-accent),
-    1px -1px 0 var(--tropical-accent), -1px 1px 0 var(--tropical-accent),
-    1px 1px 0 var(--tropical-accent);
+  text-shadow: -0.1vh -0.1vh 0 var(--tropical-accent),
+    0.1vh -0.1vh 0 var(--tropical-accent), -0.1vh 0.1vh 0 var(--tropical-accent),
+    0.1vh 0.1vh 0 var(--tropical-accent);
 }
 
 .text--Tropical__highlighted {
@@ -34,8 +199,9 @@
 
 .text--Ice {
   color: var(--ice);
-  text-shadow: -1px -1px 0 var(--ice-accent), 1px -1px 0 var(--ice-accent),
-    -1px 1px 0 var(--ice-accent), 1px 1px 0 var(--ice-accent);
+  text-shadow: -0.1vh -0.1vh 0 var(--ice-accent),
+    0.1vh -0.1vh 0 var(--ice-accent), -0.1vh 0.1vh 0 var(--ice-accent),
+    0.1vh 0.1vh 0 var(--ice-accent);
 }
 
 .text--Ice__highlighted {
@@ -45,9 +211,9 @@
 
 .text--Balloons {
   color: var(--balloons);
-  text-shadow: -1px -1px 0 var(--balloons-accent),
-    1px -1px 0 var(--balloons-accent), -1px 1px 0 var(--balloons-accent),
-    1px 1px 0 var(--balloons-accent);
+  text-shadow: -0.1vh -0.1vh 0 var(--balloons-accent),
+    0.1vh -0.1vh 0 var(--balloons-accent), -0.1vh 0.1vh 0 var(--balloons-accent),
+    0.1vh 0.1vh 0 var(--balloons-accent);
 }
 
 .text--Balloons__highlighted {
@@ -57,9 +223,9 @@
 
 .text--Bubbles {
   color: var(--bubbles);
-  text-shadow: -1px -1px 0 var(--bubbles-accent),
-    1px -1px 0 var(--bubbles-accent), -1px 1px 0 var(--bubbles-accent),
-    1px 1px 0 var(--bubbles-accent);
+  text-shadow: -0.1vh -0.1vh 0 var(--bubbles-accent),
+    0.1vh -0.1vh 0 var(--bubbles-accent), -0.1vh 0.1vh 0 var(--bubbles-accent),
+    0.1vh 0.1vh 0 var(--bubbles-accent);
 }
 
 .text--Bubbles__highlighted {
@@ -69,9 +235,10 @@
 
 .text--Fireworks {
   color: var(--fireworks);
-  text-shadow: -1px -1px 0 var(--fireworks-accent),
-    1px -1px 0 var(--fireworks-accent), -1px 1px 0 var(--fireworks-accent),
-    1px 1px 0 var(--fireworks-accent);
+  text-shadow: -0.1vh -0.1vh 0 var(--fireworks-accent),
+    0.1vh -0.1vh 0 var(--fireworks-accent),
+    -0.1vh 0.1vh 0 var(--fireworks-accent),
+    0.1vh 0.1vh 0 var(--fireworks-accent);
 }
 
 .text--Fireworks__highlighted {
@@ -81,160 +248,12 @@
 
 .text--Splash {
   color: var(--splash);
-  text-shadow: -1px -1px 0 var(--splash-accent), 1px -1px 0 var(--splash-accent),
-    -1px 1px 0 var(--splash-accent), 1px 1px 0 var(--splash-accent);
+  text-shadow: -0.1vh -0.1vh 0 var(--splash-accent),
+    0.1vh -0.1vh 0 var(--splash-accent), -0.1vh 0.1vh 0 var(--splash-accent),
+    0.1vh 0.1vh 0 var(--splash-accent);
 }
 
 .text--Splash__highlighted {
   color: var(--splash-accent);
   background-color: var(--splash);
 }
-
-/* background artwork */
-
-.cover-art {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .cover-art img {
-    width: 360px;
-  }
-  
-/* NOW logo */
-
-  .title {
-    position: absolute;
-    top: -10px;
-    left: 35px;
-    z-index: 1;
-    width: 325px;
-    font-family: "Helvetica";
-    font-weight: bold;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  #title-now {
-    font-size: 25px;
-    margin-bottom: -9px;
-    margin-top: 15px;
-  }
-  #title-thats {
-    font-size: 7px;
-    margin-bottom: -16px;
-    border-style: solid;
-    border-radius: 5px;
-    width: 90px;
-  }
-  #title-username {
-    font-size: 17px;
-  }
-  
-/* slogan */
-
-  #slogan {
-    position: absolute;
-    top: 289px;
-    left: 36px;
-    z-index: 1;
-    width: 165px;
-    font-size: 16px;
-    font-family: "Helvetica";
-    font-weight: bold;
-  }
-  
-/* barcode */
-
-  .barcode {
-    position: absolute;
-    top: 308px;
-    left: 274px;
-    z-index: 1;
-    width: 77px;
-  }
-
-  /* date and url */
-  
-  .date-and-url {
-    position: absolute;
-    top: 333px;
-    left: 37px;
-    z-index: 1;
-    color: white;
-    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-      1px 1px 0 #000;
-    font-family: "Arial Narrow";
-    font-weight: bold;
-    font-size: 10px;
-  }
-
-  /* track listing */
-  
-  .tracks-ten p {
-    font-family: "Arial Narrow";
-    font-size: 14px;
-    margin-bottom: -8px;
-    margin-top: 16px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  
-  .tracks-twenty p {
-    font-family: "Arial Narrow";
-    font-size: 12px;
-    margin-bottom: -13.5px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  
-  .tracks-fifty p {
-    font-family: "Arial Narrow";
-    font-size: 9.5px;
-    margin-bottom: -10.8px;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    width: calc(100% - 10px);
-  }
-  
-  .tracks-ten,
-  .tracks-twenty,
-  .tracks-fifty {
-    position: absolute;
-    top: 52px;
-    left: 35px;
-    z-index: 1;
-    width: 325px;
-  }
-  
-  .tracks-fifty {
-    display: flex;
-    gap: 4px; 
-    justify-content: space-between;
-  
-  }
-  
-  .left-column,
-  .right-column {
-    width: calc(
-      50% - 2px
-    );
-  }
-  
-  .left-column {
-    order: 1; 
-  }
-  
-  .right-column {
-    order: 2; 
-  }
-  
-  .bold {
-    font-weight: bold;
-  }

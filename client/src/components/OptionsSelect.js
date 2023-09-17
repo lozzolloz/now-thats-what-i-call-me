@@ -19,7 +19,7 @@ export default function OptionsSelect({
       <div className="limit-buttons">
         {trackLimits.map((limit) => (
           <button
-            className={trackLimit === limit.limit ? "selected" : ""}
+            className={trackLimit === limit.limit ? "options--selected" : ""}
             onClick={() => setTrackLimit(limit.limit)}
           >
             {limit.alias}
@@ -32,7 +32,7 @@ export default function OptionsSelect({
       <div className="range-buttons">
         {timeRanges.map((range) => (
           <button
-            className={timeRange === range.range ? "selected" : ""}
+            className={timeRange === range.range ? "options--selected" : ""}
             onClick={() => setTimeRange(range.range)}
           >
             {range.alias}
@@ -45,7 +45,7 @@ export default function OptionsSelect({
       <div className="theme-buttons">
         {themes1.map((selectedTheme) => (
           <button
-            className={theme === selectedTheme ? "selected" : ""}
+            className={theme === selectedTheme ? "options--selected" : ""}
             onClick={() => setTheme(selectedTheme)}
           >
             {selectedTheme}
