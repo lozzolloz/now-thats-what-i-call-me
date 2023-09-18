@@ -9,7 +9,7 @@ export default function CdCover({
   topTracks,
 }) {
   return (
-    <div className="cd-cover">
+    <div id="cd-cover" className="cd-cover">
       <div className="cover-bg">
         <img src={"/" + theme + ".jpeg"} alt="cover-art"></img>
       </div>

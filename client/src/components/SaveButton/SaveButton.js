@@ -1,9 +1,9 @@
 import "./SaveButton.css";
 
-export default function SaveButton() {
+export default function SaveButton({ onClick }) {
   return (
     <div className="save-button">
-      <button>Save image</button>
+      <button onClick={onClick}>Save image</button>
     </div>
   );
 }

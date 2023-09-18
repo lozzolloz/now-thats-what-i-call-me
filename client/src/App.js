@@ -1,12 +1,12 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
+import html2canvas from "html2canvas";
 import Login from "./components/Login";
 import OptionsSelect from "./components/OptionsSelect/OptionsSelect";
 import CdCover from "./components/CdCover/CdCover";
 import Footer from "./components/Footer/Footer";
 import SaveButton from "./components/SaveButton/SaveButton";
-
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -95,6 +95,24 @@ function App() {
       });
   };
 
+  const captureScreenshot = () => {
+    const elementToCapture = document.getElementById("cd-cover");
+    if (elementToCapture) {
+      html2canvas(elementToCapture).then(function (canvas) {
+        // Convert the canvas to a data URL
+        const dataURL = canvas.toDataURL("image/png");
+
+        // Create a temporary anchor element to download the image
+        const a = document.createElement("a");
+        a.href = dataURL;
+        a.download = "nowthatswhatify.png"; // Set the desired file name
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      });
+    }
+  };
+
   useEffect(() => {
     if (spotifyToken) {
       getMyTopTracks(trackLimit, timeRange);
@@ -138,7 +156,7 @@ function App() {
             formattedDate={formattedDate}
             userName={userName}
           />
-          <SaveButton />
+          <SaveButton onClick={captureScreenshot} />
           <Footer />
         </div>
       )}

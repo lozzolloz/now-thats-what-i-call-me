@@ -4,6 +4,7 @@
     width: 13vh;
     height: 6.5vh;
     font-size: 1.9vh;
+    cursor: pointer;
   }
   
   .save-button button:hover {
