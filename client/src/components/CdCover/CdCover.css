@@ -54,7 +54,7 @@
   font-size: 0.9vh;
   margin-bottom: -1.9vh;
   border-style: solid;
-  border-radius: 5px;
+  border-radius: 8vh;
   width: 10vh;
 }
 #title-username {
@@ -146,7 +146,7 @@
   font-family: "Arial Narrow";
   font-size: 1.5vh;
   margin-bottom: 0vh;
-  margin-top: -0.16vh;
+  margin-top: -0.17vh;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -154,8 +154,8 @@
 
 .tracks-fifty p {
   font-family: "Arial Narrow";
-  font-size: 1.15vh;
-  margin-bottom: -1.18vh;
+  font-size: 1.09vh;
+  margin-bottom: -1.1vh;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

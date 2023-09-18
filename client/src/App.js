@@ -2,10 +2,11 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import Login from "./components/Login";
-import OptionsSelect from "./components/OptionsSelect";
-import CdCover from "./components/CdCover";
-import Footer from "./components/Footer";
-import SaveButton from "./components/SaveButton";
+import OptionsSelect from "./components/OptionsSelect/OptionsSelect";
+import CdCover from "./components/CdCover/CdCover";
+import Footer from "./components/Footer/Footer";
+import SaveButton from "./components/SaveButton/SaveButton";
+
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -50,17 +51,23 @@ function App() {
   const formattedDate = `${day} ${monthNames[monthIndex]} ${year}`;
 
   const trackLimits = [
-    { limit: 10, alias: "10 tracks" },
-    { limit: 20, alias: "20 tracks" },
-    { limit: 50, alias: "50 tracks" },
+    { value: 10, alias: "10 tracks" },
+    { value: 20, alias: "20 tracks" },
+    { value: 50, alias: "50 tracks" },
   ];
   const timeRanges = [
-    { range: "short_term", alias: "1 month" },
-    { range: "medium_term", alias: "6 months" },
-    { range: "long_term", alias: "All time" },
+    { value: "short_term", alias: "1 month" },
+    { value: "medium_term", alias: "6 months" },
+    { value: "long_term", alias: "All time" },
   ];
-  const themes1 = ["Balloons", "Tropical", "Bubbles"];
-  const themes2 = ["Splash", "Fireworks", "Ice"];
+  const themes = [
+    { value: "Balloons", alias: "Balloons" },
+    { value: "Tropical", alias: "Tropical" },
+    { value: "Bubbles", alias: "Bubbles" },
+    { value: "Splash", alias: "Splash" },
+    { value: "Fireworks", alias: "Fireworks" },
+    { value: "Ice", alias: "Ice" },
+  ];
 
   useEffect(() => {
     console.log("This is what we derived from the URL: ", getTokenFromUrl());
@@ -112,17 +119,17 @@ function App() {
       {loggedIn && (
         <div className="App">
           <OptionsSelect
-            timeRange={timeRange}
-            setTimeRange={setTimeRange}
             trackLimit={trackLimit}
-            setTrackLimit={setTrackLimit}
-            theme={theme}
-            setTheme={setTheme}
             trackLimits={trackLimits}
+            setTrackLimit={setTrackLimit}
+            timeRange={timeRange}
             timeRanges={timeRanges}
-            themes1={themes1}
-            themes2={themes2}
+            setTimeRange={setTimeRange}
+            theme={theme}
+            themes={themes}
+            setTheme={setTheme}
           />
+
           <CdCover
             topTracks={topTracks}
             trackLimit={trackLimit}

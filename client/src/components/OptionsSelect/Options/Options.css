@@ -1,0 +1,28 @@
+ 
+  .options__section button {
+    border-radius: 1.3vh;
+   margin: 0.6vh;
+    font-size: 1.7vh;
+    width: 10.5vh;
+    height: 3.5vh;
+    font-family: "Arial";
+  }
+  
+  .options__section p {
+    font-size: 1.6vh;
+  margin: 0.6vh;
+    font-family: "Helvetica";
+  }
+  
+  .options__section {
+      text-align: center;
+      background-color: lightgrey;
+      border-radius: 1vh;
+      padding: 0.5vh;
+      width: 40vh;
+    }
+    
+    
+    .options--selected {
+      background-color: pink;
+    }
