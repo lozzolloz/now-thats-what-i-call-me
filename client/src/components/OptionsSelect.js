@@ -45,7 +45,7 @@ export default function OptionsSelect({
       <div className="theme-buttons">
         {themes1.map((selectedTheme) => (
           <button
-            className={theme === selectedTheme ? "options--selected" : ""}
+            className={theme === selectedTheme ? "selected" : ""}
             onClick={() => setTheme(selectedTheme)}
           >
             {selectedTheme}

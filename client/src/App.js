@@ -5,6 +5,7 @@ import Login from "./components/Login";
 import OptionsSelect from "./components/OptionsSelect";
 import CdCover from "./components/CdCover";
 import Footer from "./components/Footer";
+import SaveButton from "./components/SaveButton";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -130,6 +131,7 @@ function App() {
             formattedDate={formattedDate}
             userName={userName}
           />
+          <SaveButton />
           <Footer />
         </div>
       )}
