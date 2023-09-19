@@ -8,6 +8,7 @@ export default function OptionsSelect({trackLimits, setTrackLimit, trackLimit, t
     optionOptions={trackLimits}
     setOption={setTrackLimit}
     optionCurrent={trackLimit}
+    theme={theme}
   />
 
   <Options
@@ -15,6 +16,7 @@ export default function OptionsSelect({trackLimits, setTrackLimit, trackLimit, t
     optionOptions={timeRanges}
     setOption={setTimeRange}
     optionCurrent={timeRange}
+    theme={theme}
   />
 
   <Options
@@ -22,4 +24,5 @@ export default function OptionsSelect({trackLimits, setTrackLimit, trackLimit, t
     optionOptions={themes}
     setOption={setTheme}
     optionCurrent={theme}
+    theme={theme}
   /></div>)}

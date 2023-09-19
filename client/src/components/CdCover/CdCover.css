@@ -188,21 +188,6 @@
 
 /* colour schemes */
 
-:root {
-  --tropical: #e4fee8;
-  --tropical-accent: #230c5a;
-  --ice: #b4e9f0;
-  --ice-accent: #0d1f27;
-  --bubbles: white;
-  --bubbles-accent: #3f1635;
-  --balloons: yellow;
-  --balloons-accent: rgb(98, 11, 76);
-  --fireworks: #2c125d;
-  --fireworks-accent: #fafae3;
-  --splash: yellow;
-  --splash-accent: #093a41;
-}
-
 .text--Tropical {
   color: var(--tropical);
   text-shadow: -0.1vh -0.1vh 0 var(--tropical-accent),

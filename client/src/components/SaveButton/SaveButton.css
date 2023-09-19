@@ -7,13 +7,11 @@
     cursor: pointer;
   }
   
-  .save-button button:hover {
-    background-color: pink;
-  }
-  
   .save-button{
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
+
+  /* hover colour is done in options.css */

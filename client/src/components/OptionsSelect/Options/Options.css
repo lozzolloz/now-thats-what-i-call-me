@@ -22,6 +22,30 @@
   width: 40vh;
 }
 
-.options--selected {
-  background-color: pink;
+.options--selected--Balloons, .save-button--Balloons:hover {
+  background-color: var(--balloons-accent);
+  color: white;
+}
+
+.options--selected--Tropical, .save-button--Tropical:hover {
+  background-color: lightgreen;
+
+}
+
+.options--selected--Bubbles, .save-button--Bubbles:hover {
+  background-color: var(--bubbles-accent);
+  color: white;
+}
+
+.options--selected--Splash, .save-button--Splash:hover {
+  background-color: var(--splash);
+}
+
+.options--selected--Fireworks, .save-button--Fireworks:hover {
+  background-color: var(--fireworks);
+  color: white;
+}
+
+.options--selected--Ice, .save-button--Ice:hover {
+  background-color: var(--ice);
 }

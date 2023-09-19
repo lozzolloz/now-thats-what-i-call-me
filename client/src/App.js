@@ -156,7 +156,7 @@ function App() {
             formattedDate={formattedDate}
             userName={userName}
           />
-          <SaveButton onClick={captureScreenshot} />
+          <SaveButton onClick={captureScreenshot} theme={theme} />
           <Footer />
         </div>
       )}
