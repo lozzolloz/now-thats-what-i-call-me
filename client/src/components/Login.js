@@ -17,7 +17,7 @@ export default function Login() {
         </p>
       </div>
    
-      <a className='login-button' href="http://localhost:8888">Enter</a>
+      <a className='login-button' href="https://nowthatswhatify.up.railway.app">Enter</a>
       </div>
   );
 }
