@@ -83,6 +83,7 @@ function App() {
         setUserName(user.display_name);
       });
       setLoggedIn(true);
+      
     }
   }, []);
 
@@ -130,7 +131,7 @@ function App() {
   return (
     <>
       {!loggedIn && (
-        <div className="App">
+        <div>
           <Login />
         </div>
       )}
