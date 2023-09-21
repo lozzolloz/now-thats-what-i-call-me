@@ -7,6 +7,8 @@
  * https://developer.spotify.com/web-api/authorization-guide/#authorization_code_flow
  */
 
+var dotenv = require("dotenv");
+dotenv.config();
 var express = require("express"); // Express web server framework
 var request = require("request"); // "Request" library
 var cors = require("cors");
@@ -14,8 +16,9 @@ var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 
 //update below with your app information
-var client_id = "fbcedd9a35be47189da876e5f8670190"; // Your client id
-var client_secret = "0bf538c80f7346e5b480ee4a2beb60f2"; // Your secret
+var client_id = process.env.CLIENT_ID; // Your client id
+var client_secret = process.env.CLIENT_SECRET; // Your secret
+var PORT = process.env.PORT;
 var redirect_uri = "http://localhost:8888/callback"; // Your redirect uri
 
 /**
@@ -157,5 +160,6 @@ app.get("/refresh_token", function (req, res) {
   });
 });
 
-console.log("Listening on 8888");
-app.listen(8888);
+app.listen(PORT, () => {
+  console.log(`Listening on ${PORT}`);
+});
