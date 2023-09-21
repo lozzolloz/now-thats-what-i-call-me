@@ -43,7 +43,8 @@ var app = express();
 
 app
   .use(express.static(__dirname + "/public"))
-  .use(cors())
+  .use(cors({ origin: 'https://nowthatswhatify.netlify.app', // Update with your Netlify domain
+  credentials: true,}))
   .use(cookieParser());
 
 app.get("/login", function (req, res) {
