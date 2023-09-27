@@ -20,6 +20,7 @@ var client_id = process.env.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET; // Your secret
 var PORT = process.env.PORT;
 
+
 if (process.env.DEPLOYED === "true") {
   var urlFrontend = "https://nowthatswhatify.netlify.app";
   var urlServer = "https://nowthatswhatify.up.railway.app";
@@ -29,6 +30,7 @@ if (process.env.DEPLOYED === "true") {
 }
 
 var redirect_uri = `${urlServer}/callback`; // Your redirect uri
+
 
 /**
  * Generates a random string containing numbers and letters
@@ -52,7 +54,8 @@ var app = express();
 
 app
   .use(express.static(__dirname + "/public"))
-  .use(cors())
+  .use(cors({ origin: 'https://nowthatswhatify.netlify.app', // Update with your Netlify domain
+  credentials: true,}))
   .use(cookieParser());
 
 app.get("/login", function (req, res) {
@@ -61,7 +64,7 @@ app.get("/login", function (req, res) {
 
   // your application requests authorization
   var scope =
-    "user-read-private user-read-email user-read-playback-state user-top-read";
+    "user-read-private user-read-email user-top-read playlist-modify-public";
   res.redirect(
     "https://accounts.spotify.com/authorize?" +
       querystring.stringify({
@@ -95,7 +98,7 @@ app.get("/callback", function (req, res) {
       url: "https://accounts.spotify.com/api/token",
       form: {
         code: code,
-        redirect_uri: redirect_uri,
+        redirect_uri: 'https://nowthatswhatify.netlify.app',
         grant_type: "authorization_code",
       },
       headers: {
@@ -107,6 +110,7 @@ app.get("/callback", function (req, res) {
     };
 
     request.post(authOptions, function (error, response, body) {
+      console.log(error, response, body)
       if (!error && response.statusCode === 200) {
         var access_token = body.access_token,
           refresh_token = body.refresh_token;
@@ -124,7 +128,9 @@ app.get("/callback", function (req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
+
           `${urlFrontend}/#` +
+
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
@@ -132,7 +138,9 @@ app.get("/callback", function (req, res) {
         );
       } else {
         res.redirect(
+
           `${urlFrontend}/#` +
+
             querystring.stringify({
               error: "invalid_token",
             })
