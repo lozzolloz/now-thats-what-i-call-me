@@ -98,7 +98,7 @@ app.get("/callback", function (req, res) {
       url: "https://accounts.spotify.com/api/token",
       form: {
         code: code,
-        redirect_uri: 'https://nowthatswhatify.netlify.app',
+        redirect_uri: redirect_uri,
         grant_type: "authorization_code",
       },
       headers: {
