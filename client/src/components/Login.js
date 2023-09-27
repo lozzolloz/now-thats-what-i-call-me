@@ -1,23 +1,28 @@
 import "./Login.css";
+import { urlServer } from "../App";
 
 export default function Login() {
   return (
-    <div className='login-screen'>
+    <div className="login-screen">
       <div className="title">
         <p id="home-now" className="text--home">
           NOW
         </p>
-        <div id='poo'>
+
         <p id="home-thats" className={"text--home__highlighted"}>
           THAT'S WHAT
         </p>
-        </div>
+
         <p id="home-ify" className="text--home">
           IFY
         </p>
       </div>
-   
-      <a className='login-button' href="https://nowthatswhatify.up.railway.app">Enter</a>
-      </div>
+
+
+      <a className="login-button" href={urlServer}>
+        Enter
+      </a>
+    </div>
+
   );
 }

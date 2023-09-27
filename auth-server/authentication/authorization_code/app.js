@@ -19,7 +19,18 @@ var cookieParser = require("cookie-parser");
 var client_id = process.env.CLIENT_ID; // Your client id
 var client_secret = process.env.CLIENT_SECRET; // Your secret
 var PORT = process.env.PORT;
-var redirect_uri = "https://nowthatswhatify.up.railway.app/callback"; // Your redirect uri
+
+
+if (process.env.DEPLOYED === "true") {
+  var urlFrontend = "https://nowthatswhatify.netlify.app";
+  var urlServer = "https://nowthatswhatify.up.railway.app";
+} else {
+  var urlFrontend = "http://localhost:3000";
+  var urlServer = "http://localhost:8888";
+}
+
+var redirect_uri = `${urlServer}/callback`; // Your redirect uri
+
 
 /**
  * Generates a random string containing numbers and letters
@@ -117,7 +128,9 @@ app.get("/callback", function (req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-          "https://nowthatswhatify.netlify.app/#" +
+
+          `${urlFrontend}/#` +
+
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
@@ -125,7 +138,9 @@ app.get("/callback", function (req, res) {
         );
       } else {
         res.redirect(
-          "https://nowthatswhatify.netlify.app/#" +
+
+          `${urlFrontend}/#` +
+
             querystring.stringify({
               error: "invalid_token",
             })
