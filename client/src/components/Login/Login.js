@@ -1,7 +1,7 @@
 import "./Login.css";
-import { urlServer } from "../App";
 
-export default function Login() {
+export default function Login({urlServer}) {
+
   return (
     <div className="login-screen">
       <div className="title">
@@ -18,11 +18,9 @@ export default function Login() {
         </p>
       </div>
 
-
       <a className="login-button" href={urlServer}>
         Enter
       </a>
     </div>
-
   );
 }

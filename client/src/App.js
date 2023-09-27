@@ -2,18 +2,18 @@ import "./App.css";
 import React, { useEffect, useState } from "react";
 import SpotifyWebApi from "spotify-web-api-js";
 import html2canvas from "html2canvas";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 import OptionsSelect from "./components/OptionsSelect/OptionsSelect";
 import CdCover from "./components/CdCover/CdCover";
 import Footer from "./components/Footer/Footer";
 import SaveButton from "./components/SaveButton/SaveButton";
 
-export let urlServer;
-if (process.env.DEPLOYED === "true") {
-  urlServer = "https://nowthatswhatify.up.railway.app";
-} else {
-  urlServer = "http://localhost:8888";
-}
+//change to false when working locally
+let deployment = true;
+var urlServer =
+  deployment === true
+    ? "https://nowthatswhatify.up.railway.app"
+    : "http://localhost:8888";
 
 const spotifyApi = new SpotifyWebApi();
 
@@ -138,7 +138,7 @@ function App() {
     <>
       {!loggedIn && (
         <div>
-          <Login />
+          <Login urlServer={urlServer} />
         </div>
       )}
       {loggedIn && (
@@ -164,7 +164,7 @@ function App() {
             userName={userName}
           />
           <SaveButton onClick={captureScreenshot} theme={theme} />
-          <Footer />
+          <Footer urlServer={urlServer} />
         </div>
       )}
     </>
