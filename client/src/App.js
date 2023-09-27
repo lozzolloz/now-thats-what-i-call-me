@@ -8,6 +8,13 @@ import CdCover from "./components/CdCover/CdCover";
 import Footer from "./components/Footer/Footer";
 import SaveButton from "./components/SaveButton/SaveButton";
 
+export let urlServer;
+if (process.env.DEPLOYED === "true") {
+  urlServer = "https://nowthatswhatify.up.railway.app";
+} else {
+  urlServer = "http://localhost:8888";
+}
+
 const spotifyApi = new SpotifyWebApi();
 
 const getTokenFromUrl = () => {
@@ -83,7 +90,6 @@ function App() {
         setUserName(user.display_name);
       });
       setLoggedIn(true);
-      
     }
   }, []);
 
