@@ -6,15 +6,15 @@ export default function Login({urlServer}) {
     <div className="login-screen">
       <div className="title">
         <p id="home-now" className="text--home">
-          NOW
+          THAT'S
         </p>
 
         <p id="home-thats" className={"text--home__highlighted"}>
-          THAT'S WHAT
+          THATSWHATIFY
         </p>
 
         <p id="home-ify" className="text--home">
-          IFY
+          WHATIFY
         </p>
       </div>
 

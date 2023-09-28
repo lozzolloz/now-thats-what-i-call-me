@@ -9,7 +9,7 @@ import Footer from "./components/Footer/Footer";
 import SaveButton from "./components/SaveButton/SaveButton";
 
 //change to false when working locally
-let deployment = true;
+let deployment = false;
 var urlServer =
   deployment === true
     ? "https://nowthatswhatify.up.railway.app"
