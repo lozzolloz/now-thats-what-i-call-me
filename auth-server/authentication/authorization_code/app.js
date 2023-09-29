@@ -16,10 +16,12 @@ var querystring = require("querystring");
 var cookieParser = require("cookie-parser");
 
 //update below with your app information
-var client_id = process.env.CLIENT_ID; // Your client id
-var client_secret = process.env.CLIENT_SECRET; // Your secret
+var client_id = process.env.CLIENT_ID;
+console.log("xxxxxxxxxx");
+console.log(client_id); // Your client id
+var client_secret = process.env.CLIENT_SECRET;
+console.log(client_secret); // Your secret
 var PORT = process.env.PORT;
-
 
 if (process.env.DEPLOYED === "true") {
   var urlFrontend = "https://nowthatswhatify.netlify.app";
@@ -30,7 +32,6 @@ if (process.env.DEPLOYED === "true") {
 }
 
 var redirect_uri = `${urlServer}/callback`; // Your redirect uri
-
 
 /**
  * Generates a random string containing numbers and letters
@@ -54,8 +55,12 @@ var app = express();
 
 app
   .use(express.static(__dirname + "/public"))
-  .use(cors({ origin: 'https://nowthatswhatify.netlify.app', // Update with your Netlify domain
-  credentials: true,}))
+  .use(
+    cors({
+      origin: "https://nowthatswhatify.netlify.app", // Update with your Netlify domain
+      credentials: true,
+    })
+  )
   .use(cookieParser());
 
 app.get("/login", function (req, res) {
@@ -110,7 +115,7 @@ app.get("/callback", function (req, res) {
     };
 
     request.post(authOptions, function (error, response, body) {
-      console.log(error, response, body)
+      console.log(error, response, body);
       if (!error && response.statusCode === 200) {
         var access_token = body.access_token,
           refresh_token = body.refresh_token;
@@ -128,9 +133,7 @@ app.get("/callback", function (req, res) {
 
         // we can also pass the token to the browser to make requests from there
         res.redirect(
-
           `${urlFrontend}/#` +
-
             querystring.stringify({
               access_token: access_token,
               refresh_token: refresh_token,
@@ -138,9 +141,7 @@ app.get("/callback", function (req, res) {
         );
       } else {
         res.redirect(
-
           `${urlFrontend}/#` +
-
             querystring.stringify({
               error: "invalid_token",
             })
