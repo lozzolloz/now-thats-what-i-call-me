@@ -1,5 +1,6 @@
 import "./CdCover.css";
 import React, { useEffect, useState } from "react";
+import '../../fonts/fonts.css'
 
 export default function CdCover({
   theme,

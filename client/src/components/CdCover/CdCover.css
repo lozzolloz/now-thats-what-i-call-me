@@ -152,7 +152,7 @@ a {
 }
 
 .tracks-ten p {
-  font-family: "Arial Narrow";
+  font-family: "ArialNarrow";
   font-size: 1.8vh;
   margin-bottom: 0vh;
   margin-top: 1vh;
@@ -169,7 +169,7 @@ a {
 }
 
 .tracks-twenty p {
-  font-family: "Arial Narrow";
+  font-family: "ArialNarrow";
   font-size: 1.5vh;
   margin-bottom: 0vh;
   margin-top: -0.17vh;
@@ -179,7 +179,7 @@ a {
 }
 
 .tracks-fifty p {
-  font-family: "Arial Narrow";
+  font-family: "ArialNarrow";
   font-size: 1.09vh;
   margin-bottom: -1.1vh;
   overflow: hidden;

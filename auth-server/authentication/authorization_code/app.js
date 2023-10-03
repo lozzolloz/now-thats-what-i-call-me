@@ -17,7 +17,6 @@ var cookieParser = require("cookie-parser");
 
 //update below with your app information
 var client_id = process.env.CLIENT_ID;
-console.log("xxxxxxxxxx");
 console.log(client_id); // Your client id
 var client_secret = process.env.CLIENT_SECRET;
 console.log(client_secret); // Your secret
@@ -85,7 +84,10 @@ app.get("/login", function (req, res) {
 app.get("/callback", function (req, res) {
   // your application requests refresh and access tokens
   // after checking the state parameter
-
+  if (req.query.error) {
+    console.error(req.query.error);
+    res.redirect("/#");
+  }
   var code = req.query.code || null;
   var state = req.query.state || null;
   var storedState = req.cookies ? req.cookies[stateKey] : null;

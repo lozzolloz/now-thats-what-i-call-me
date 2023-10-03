@@ -12,5 +12,5 @@ var express = require("express"); // Express web server framework
 var app = express();
 app.use(express.static(__dirname + "/public"));
 app.listen(PORT, () => {
-    console.log(`Listening on ${PORT}`);
-  });
+  console.log(`Listening on ${PORT}`);
+});
