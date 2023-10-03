@@ -2,7 +2,7 @@
   border-radius: 1.3vh;
   margin: 0.6vh;
   font-size: 1.7vh;
-  width: 11vh;
+  width: 12vh;
   height: 3.5vh;
   font-family: "Arial";
   cursor: pointer;
@@ -19,7 +19,7 @@
   background-color: lightgrey;
   border-radius: 1vh;
   padding: 0.5vh;
-  width: 37vh;
+  width: 42vh;
 }
 
 .options--selected--Balloons, .save-button--Balloons:hover {
