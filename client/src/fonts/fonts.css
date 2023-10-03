@@ -6,8 +6,8 @@
 }
 
 @font-face {
-    font-family: 'Arial Narrow';
-    src: local('Arial Narrow'), url('./ArialNarrow-Bold.woff2') format('woff2');
-    font-weight: bold;
+    font-family: 'Arial Narrow Bold';
+    src: local('Arial Narrow Bold'), url('./ArialNarrow-Bold.woff2') format('woff2');
+    font-weight: normal;
     font-style: normal;
 }

@@ -134,8 +134,6 @@ export default function CdCover({
             </div>
           </div>
         )}
-
-        {/* <div className="cover__overlay--bottom"> */}
         <div className="blurb">
           <div id="slogan" className={"text--" + theme}>
             {timeRange === "short_term" && (
@@ -148,19 +146,6 @@ export default function CdCover({
           <p className="date-and-url">
             Published {formattedDate}&nbsp;nowthatswhatify.netlify.app
           </p>
-          {/* </div> */}
-          {/* <div className="logo-and-barcode">
-<div className="logo-bg">
-          <img
-            className="spotify-logo"
-            src={process.env.PUBLIC_URL + "images/Spotify_Logo_RGB_Black.png"}
-            alt="logo"></img></div> */}
-          {/* <img
-            className="barcode"
-            src={process.env.PUBLIC_URL + "images/Barcode.jpg"}
-            alt="barcode"
-          ></img> */}
-          {/* </div> */}
         </div>
       </div>
     </div>

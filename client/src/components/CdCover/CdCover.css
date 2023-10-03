@@ -1,7 +1,9 @@
 .cd-cover {
   position: relative;
-  height: 45vh;
-  width: 45vh;
+  height: 100vw;
+  width: 100vw;
+  max-width: 50vh;
+  max-height: 50vh;
 }
 
 /* background artwork */
@@ -10,97 +12,87 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100%;
+  width: 100%;
 }
 
 .cover-bg img {
-  width: 45vh;
-  height: 45vh;
+  width: 100%;
+  height: 100%;
 }
 
 .cover__overlay {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 45vh;
-  height: 45vh;
+  width: 100%;
+  height: 100%;
 }
 
 /* NOW logo */
 
 .title {
   z-index: 1;
-  width: 45vh;
+  height: 15%;
+  width: 100%;
   font-family: "Helvetica";
   font-weight: bold;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 0.5vh;
-  margin-bottom: 0;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 0;
 }
 
 #title1 {
-  font-size: 2.6vh;
-  margin-bottom: -1vh;
-  margin-top: 0;
+  font-size: 5.2vw;
+  margin: 0;
+  margin-top: 2%;
 }
 #title2 {
-  font-size: 0.9vh;
-  margin-bottom: -2.1vh;
+  font-size: 1.8vw;
   border-style: solid;
-  border-radius: 8vh;
-  width: 10vh;
-  height: 1.1vh;
+  border-radius: 16vw;
+  width: 20vw;
+  height: 2.2vw;
   justify-self: center;
+  margin: 0;
 }
 #title-username {
-  font-size: 2vh;
-  margin-bottom: 0;
+  font-size: 5.2vw;
+  margin: 0;
 }
-
-/* lower third */
-
-/* .cover__overlay--bottom {
-  width: 45vh;
-  height: 5vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: flex-end;
-  margin-top: -1vh;
-  margin-bottom: 0.5vh;
-} */
 
 .blurb {
   display: flex;
   flex-direction: column;
-  margin-left: -14vh;
-  margin-bottom: 0.4vh;
-  margin-top: -4vh;
+  margin-left: -37.5vw;
+  height: 12%;
+  margin-top: 0;
+  margin-bottom: 0;
+  justify-content: space-between;
 }
-
-/* .logo-and-barcode {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: space-evenly;
-} */
-
-/* slogan */
 
 #slogan {
   z-index: 1;
-  width: 20vh;
+  width: 40vw;
   margin: 0;
-  font-size: 2vh;
+  font-size: 4vw;
   font-family: "Helvetica";
   font-weight: bold;
+  padding: 0;
+}
+
+#slogan p {
+  margin: 0;
+  padding: 0;
 }
 
 /* date and url */
@@ -112,67 +104,44 @@
     0.1vh 0.1vh 0 #000;
   font-family: "Arial Narrow";
   font-weight: bold;
-  font-size: 1.2vh;
-  margin-top: -2vh;
-  margin-bottom: 0;
+  font-size: 2.4vw;
+  margin: 0;
 }
-
-/* spotify logo */
-/* 
-.spotify-logo{
-  width: 10.5vh;
-  padding: 0.1vh
-}
-
-.logo-bg{
-  background-color: rgba(255,255,255,0.6);
-  margin-bottom: 0.6vh;
-} */
-
-/* barcode */
-
-/* .barcode {
-  z-index: 1;
-  /* width: 10.5vh; */
-/*  height: 2.5vh;
-} */
-
-/* track listing */
 
 a {
   color: black;
   text-decoration: none;
 }
 
-.tracks-ten {
+#tracklist {
+  height: 70%;
+  display: flex;
+}
+
+.tracks-ten,
+.tracks-twenty {
   z-index: 1;
-  width: 38vh;
+  width: 80%;
   margin: 0;
-  margin-top: -3vh;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 .tracks-ten p {
   font-family: "Arial Narrow";
-  font-size: 1.8vh;
-  margin-bottom: 0vh;
-  margin-top: 1vh;
+  font-size: 4vw;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
-.tracks-twenty {
-  z-index: 1;
-  width: 38vh;
-  margin: 0;
-  margin-top: -1.9vh;
-}
-
 .tracks-twenty p {
   font-family: "Arial Narrow";
-  font-size: 1.5vh;
-  margin-bottom: 0vh;
-  margin-top: -0.17vh;
+  font-size: 3vw;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
@@ -180,33 +149,33 @@ a {
 
 .tracks-fifty p {
   font-family: "Arial Narrow";
-  font-size: 1.09vh;
-  margin-bottom: -1.1vh;
+  font-size: 2.4vw;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 19.4vh;
 }
 
 .tracks-fifty {
   z-index: 1;
-  width: 45vh;
-  display: flex;
-  justify-content: center;
-  align-items: space-between;
+  width: 80%;
   margin: 0;
-  margin-top: -2.8vh;
-  margin-left: 2vh;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .left-column,
 .right-column {
-  width: 21vh;
-  margin-top: -1.5vh;
+  width: 49%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .bold {
-  font-weight: bold;
+  font-family: "Arial Narrow Bold";
 }
 
 /* colour schemes */
@@ -282,4 +251,58 @@ a {
 .text--Splash__highlighted {
   color: var(--splash-accent);
   background-color: var(--splash);
+}
+
+/* Media query for screens where 100vw is greater than 50vh */
+@media screen and (min-width: 50vh) {
+  .title {
+    z-index: 1;
+    height: 15%;
+    width: 100%;
+    font-family: "Helvetica";
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+  }
+
+  #title1,
+  #title-username {
+    font-size: 2.6vh;
+  }
+  #title2 {
+    font-size: 0.9vh;
+    border-radius: 8vh;
+    width: 10vh;
+    height: 1.1vh;
+  }
+
+  .tracks-ten p {
+    font-size: 2vh;
+  }
+
+  .tracks-twenty p {
+    font-size: 1.5vh;
+  }
+
+  .tracks-fifty p {
+    font-size: 1.2vh;
+  }
+
+  .blurb {
+    margin-left: -19vh;
+  }
+
+  #slogan {
+    width: 20vh;
+    font-size: 2vh;
+  }
+
+  .date-and-url {
+    font-size: 1.2vh;
+  }
 }
