@@ -1,6 +1,13 @@
 @font-face {
-    font-family: 'ArialNarrow';
-    src: local('ArialNarrow'), url('./Arial-Narrow.ttf') format('ttf');
+    font-family: 'Arial Narrow';
+    src: local('ArialNarrow'), url('./Arial Narrow.ttf') format('ttf');
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arial Narrow';
+    src: local('ArialNarrow'), url('./Arial Narrow Bold.ttf') format('ttf');
+    font-weight: bold;
     font-style: normal;
 }
