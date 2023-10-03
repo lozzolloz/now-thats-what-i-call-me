@@ -1,19 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Example of the Authorization Code flow with Spotify</title>
-    <!-- <link rel="stylesheet" type="text/css" href="../app.css" /> -->
+    <link rel="icon" href="./favicon.ico" />
+    <title>Authorization with Spotify</title>
+
     <style type="text/css">
-      /* #login,
-      #loggedin {
-        display: none;
-      }
-      .text-overflow {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        width: 500px;
-      } */
+   
 
       :root {
         --home: #ffde09;
@@ -34,6 +26,17 @@
   border-color: var(--home-accent);
   font-family: "Helvetica";
 }
+
+.app{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-items: center;
+height: 100vh;
+overflow-y: hidden;
+overscroll-behavior: none;
+}
+
 
       .login-screen {
         display: flex;
@@ -92,6 +95,7 @@
 
   <body>
  
+    <div class="app">
     <div class='login-screen'>
       <div class="title">
         <p id="home-title1" class="text--home">
@@ -116,7 +120,7 @@
         </button>
       </div>
     </div>
-
+  </div>
     <script id="user-profile-template" type="text/x-handlebars-template">
       <h1>Logged in as {{display_name}}</h1>
       <div class="media">

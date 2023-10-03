@@ -23,8 +23,8 @@ console.log(client_secret); // Your secret
 var PORT = process.env.PORT;
 
 if (process.env.DEPLOYED === "true") {
-  var urlFrontend = "https://nowthatswhatify.netlify.app";
-  var urlServer = "https://nowthatswhatify.up.railway.app";
+  var urlFrontend = "https://thatswhatify.netlify.app";
+  var urlServer = "https://thatswhatify.up.railway.app";
 } else {
   var urlFrontend = "http://localhost:3000";
   var urlServer = "http://localhost:8888";

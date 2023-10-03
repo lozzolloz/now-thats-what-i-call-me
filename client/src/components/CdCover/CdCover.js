@@ -48,7 +48,7 @@ export default function CdCover({
   return (
     <div id="cd-cover" className="cd-cover">
       <div className="cover-bg">
-        <img src={"/" + theme + "-logo.jpeg"} alt="cover-art"></img>
+        <img src={"/images/" + theme + "-logo.jpeg"} alt="cover-art"></img>
       </div>
 
       <div className="cover__overlay">
@@ -144,7 +144,7 @@ export default function CdCover({
           </div>
 
           <p className="date-and-url">
-            Published {formattedDate}&nbsp;nowthatswhatify.netlify.app
+            Published {formattedDate}&nbsp;thatswhatify.netlify.app
           </p>
         </div>
       </div>

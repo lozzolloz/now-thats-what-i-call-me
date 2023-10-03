@@ -6,6 +6,9 @@
   max-height: 50vh;
 }
 
+
+/* see bottom for responsive media screen settings */
+
 /* background artwork */
 
 .cover-bg {
@@ -34,7 +37,7 @@
   height: 100%;
 }
 
-/* NOW logo */
+/* title logo */
 
 .title {
   z-index: 1;
@@ -71,6 +74,8 @@
   margin: 0;
 }
 
+/* lower 3rd blurb*/
+
 .blurb {
   display: flex;
   flex-direction: column;
@@ -96,8 +101,6 @@
   padding: 0;
 }
 
-/* date and url */
-
 .date-and-url {
   z-index: 1;
   color: white;
@@ -108,6 +111,8 @@
   font-size: 2.4vw;
   margin: 0;
 }
+
+/* tracklist */
 
 a {
   color: black;

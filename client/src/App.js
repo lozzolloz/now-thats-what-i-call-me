@@ -12,7 +12,7 @@ import SaveButton from "./components/SaveButton/SaveButton";
 let deployment = true;
 var urlServer =
   deployment === true
-    ? "https://nowthatswhatify.up.railway.app"
+    ? "https://thatswhatify.up.railway.app"
     : "http://localhost:8888";
 
 const spotifyApi = new SpotifyWebApi();
