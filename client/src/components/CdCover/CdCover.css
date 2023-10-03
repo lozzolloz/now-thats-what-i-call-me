@@ -59,6 +59,7 @@
 #title2 {
   font-size: 1.8vw;
   border-style: solid;
+  border-width: 0.1vh;
   border-radius: 16vw;
   width: 20vw;
   height: 2.2vw;
