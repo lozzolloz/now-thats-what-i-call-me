@@ -4,7 +4,7 @@ export default function Footer({urlServer}) {
 
   return (
     <div className="footer">
-      <a className="logout-button" href={urlServer}>
+      <a className="logout-button" href={urlServer} >
         Log out
       </a>
     </div>

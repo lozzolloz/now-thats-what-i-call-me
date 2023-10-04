@@ -112,7 +112,7 @@ function App() {
         // Create a temporary anchor element to download the image
         const a = document.createElement("a");
         a.href = dataURL;
-        a.download = "nowthatswhatify.png"; // Set the desired file name
+        a.download = "thatswhatify.png"; // Set the desired file name
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
