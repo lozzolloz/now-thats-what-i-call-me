@@ -4,7 +4,7 @@ export default function Login({urlServer}) {
 
   return (
     <div className="login-screen">
-      <div className="title">
+      <div className="login-screen__title">
         <p id="home-now" className="text--home">
           THAT'S
         </p>

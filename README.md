@@ -1,5 +1,4 @@
-*Though this app is now live, it is currently in Spotify's developer mode, which means only users I have added via the name and email address on their Spotify account can use it.*
-*My extension request to make it publically available is currently under review by Spotify.*
+THATSWHATIFY IS NOW LIVE! https://thatswhatify.netlify.app/
 
 THATSWHATIFY uses an authentication server to allow users to log in with Spotify and grant the app permission to see their top tracks. 
 
