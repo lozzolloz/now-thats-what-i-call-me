@@ -59,10 +59,10 @@ export default function CdCover({
           <p id="title1" className={"text--" + theme}>
             {title1}
           </p>
-          <div className="subtitle">
+       
           <p id="title2" className={"text--" + theme + "__highlighted"}>
             {title2}
-          </p></div>
+          </p>
           <p id="title-username" className={"text--" + theme}>
             {userName.toUpperCase()}
           </p>
