@@ -10,4 +10,4 @@ This image can then be saved for sharing and debate on social media.
 
 This monorepo is split into two folders, the auth server built using node and express, and the client-side frontend built using React and CSS.
 
-[Full demo](https://www.youtube.com/watch?v=JlD43rLOc3M)https://www.youtube.com/watch?v=JlD43rLOc3M
+[Full demo](https://www.youtube.com/watch?v=JlD43rLOc3M)
